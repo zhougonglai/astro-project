@@ -1,41 +1,25 @@
 <template>
-	<div class="counter">
-		<button @click="subtract()">-</button>
-		<pre>{{ count }}</pre>
-		<button @click="add()">+</button>
-	</div>
-	<div class="counter-message">
-		<slot />
-	</div>
+  <div class="counter">
+
+
+    <lottie-player src="https://lottie.host/a2e2672b-8eb4-4d29-9178-fef08113be40/7J4uNyRxoh.json" background="transparent"
+      style="width: 300px; height: 300px;" loop count="2" hover autoplay></lottie-player>
+  </div>
+  <div class="counter-message">
+    <slot />
+  </div>
 </template>
 
-<script lang="ts">
-import { ref } from 'vue';
-export default {
-	setup() {
-		const count = ref(0);
-		const add = () => (count.value = count.value + 1);
-		const subtract = () => (count.value = count.value - 1);
+<script lang="ts" setup>
+import { ref } from "vue";
 
-		return {
-			count,
-			add,
-			subtract,
-		};
-	},
-};
+const count = ref(0);
+const add = () => (count.value = count.value + 1);
+const subtract = () => (count.value = count.value - 1);
 </script>
 
 <style>
-.counter {
-	display: grid;
-	font-size: 2em;
-	grid-template-columns: repeat(3, minmax(0, 1fr));
-	margin-top: 2em;
-	place-items: center;
-}
-
 .counter-message {
-	text-align: center;
+  text-align: center;
 }
 </style>
